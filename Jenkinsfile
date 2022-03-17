@@ -7,9 +7,10 @@ pipeline {
                 echo 'Building...'
             }
         }
-       stage('') {
+      stage('scan') {
             steps {
-                echo 'Building...'
+               withsonarQubeEnv(instalationName:'sq')
+               {sh'./mvnw clean org.sonar}
             }
         }
 
