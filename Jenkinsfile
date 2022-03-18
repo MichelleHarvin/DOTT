@@ -9,10 +9,7 @@ pipeline {
             }
         }
      
-     node {
-        stage('SCM') {
-            git 'https://github.com/MichelleHarvin/DOTT.git'
-           }
+    
         stage('SonarQube analysis') {
             withSonarQubeEnv(installationName:'sonar') {
                 withMaven (maven:'mvn')
