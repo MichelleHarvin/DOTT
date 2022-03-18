@@ -11,7 +11,7 @@ pipeline {
      
     
         stage('SonarQube analysis') {
-            withSonarQubeEnv(installationName:'sonar') {
+            steps { withSonarQubeEnv(installationName:'sonar') 
                 withMaven (maven:'mvn')
                 {mvn clean verify sonar:sonar
                 mvn clean install
