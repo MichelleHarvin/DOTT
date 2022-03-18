@@ -18,8 +18,8 @@ pipeline {
                 withMaven (maven:'mvn')
                 {mvn clean verify sonar:sonar
                 mvn clean install
-                 mvn sonar:sonar
-               sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'}
+                mvn sonar:sonar
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'}
                 
             }
         }
