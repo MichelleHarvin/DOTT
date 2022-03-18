@@ -9,10 +9,10 @@ pipeline {
             }
         }
      
-        stage('scan') {
-            steps {
-                withSonarQubeEnv(installationName:'sonar') 
-                'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar-maven-plugin:3.6.0.projectKey=MichelleHarvin_DOTT'
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SonarScanner 4.0';
+            withSonarQubeEnv(installationName:'sonar') {
+               sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'
             }
         }
         
