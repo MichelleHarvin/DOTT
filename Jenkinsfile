@@ -12,6 +12,7 @@ pipeline {
         stage('SonarQube analysis') {
             def scannerHome = tool 'SonarScanner 4.0';
             withSonarQubeEnv(installationName:'sonar') {
+               withMaven (maven:'mvn')
                mvn clean verify sonar:sonar
                mvn clean install
                mvn sonar:sonar
