@@ -14,6 +14,12 @@ pipeline {
                 echo 'Testing..'
             }
         }
+         stage('Unit testing') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        
         stage('Deploy') {
             steps {
                 echo 'Jaló...'
