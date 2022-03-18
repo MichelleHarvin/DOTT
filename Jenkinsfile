@@ -9,7 +9,6 @@ pipeline {
             }
         }
      
-     issues
         stage('SonarQube analysis') {
             steps { withSonarQubeEnv(installationName:'sonar')
                    withMaven (maven:'mvn'){
