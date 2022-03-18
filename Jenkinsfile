@@ -10,7 +10,7 @@ pipeline {
       stage('scan') {
             steps {
                withsonarQubeEnv(instalationName:'sq')
-               sh'./mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'
+               sh'mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'
             }
                 
         }
