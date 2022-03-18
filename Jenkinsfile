@@ -11,10 +11,10 @@ pipeline {
      
         stage('SonarQube analysis') {
             steps { withSonarQubeEnv(installationName:'sonar')
-                   withMaven (maven:'mvn'){
-                mvn clean verify sonar:sonar
-                mvn clean install
-                mvn sonar:sonar
+                withMaven (maven:'mvn'){
+                sh 'mvn clean verify sonar:sonar'
+                sh 'mvn clean install'
+                sh 'mvn sonar:sonar'
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MichelleHarvin_DOTT'}   
             }
         }
